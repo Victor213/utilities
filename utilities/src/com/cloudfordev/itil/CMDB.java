@@ -387,7 +387,7 @@ public class CMDB {
 					}
 					
 					// Fire up an EnigmaMachine for database password decrypting
-					EnigmaMachine em = new EnigmaMachine(new File(Config.enigmaKeystoreFilePath));
+					EnigmaMachine em = new EnigmaMachine(new File(Config.getCpEnigmaKey()));
 					String dbPassword = "";
 					
 					try {

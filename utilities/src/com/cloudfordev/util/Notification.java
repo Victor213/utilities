@@ -153,7 +153,13 @@ public class Notification {
 			final String username = "webmaster@cloudfordev.com";
 			
 			// Setup the EnigmaMachine
-			EnigmaMachine em = new EnigmaMachine(new File("/home/jboss/keys/enigma"));
+			String keyLocation = "";
+			if (System.getProperty("os.name").toLowerCase().startsWith("win")) {
+				keyLocation = "C:\\Users\\jboss\\keys\\enigma";
+			} else {
+				keyLocation = "/home/jboss/keys/enigma";
+			}
+			EnigmaMachine em = new EnigmaMachine(new File(keyLocation));
 			
 			// Decrypt the mail relay password
 			final String password = em.decrypt("pBbhgWGyzNnKmhrYtkIASw==","TOu9l9xDbKcHRF5+TKZVdg==");

@@ -13,7 +13,8 @@ public class Config extends ConfigClass {
 	 * ITIL core configuration
 	 */
 	// Misc
-	public static String enigmaKeystoreFilePath = "/home/jboss/keys/enigma";
+	//public static String enigmaKeystoreFilePath = "/home/jboss/keys/enigma";
+	private static String defaultEnigmaKey = "/home/jboss/keys/enigma";
 	
 	// Configuration Management System (CMS) Configuration
 	public static String cmsDriver = "org.postgresql.Driver";
@@ -36,5 +37,18 @@ public class Config extends ConfigClass {
 	public static String icmDBPasswordCipher = "dNbIZjIHnxXFtCKQTm+8fQ==";
 	public static String icmDBPasswordIV = "3OAcfaPbtYQm8DHYE7sADw==";
 	public static String icmJDBCJNDI = "java:/icm";
+	
+	public static String getCpEnigmaKey() {
+		String Os = System.getProperty("os.name").toLowerCase();
+		String keyLocation = "";
+		
+		if (Os.startsWith("win")) {
+			keyLocation = "C:\\Users\\jboss\\keys\\enigma";
+		} else {
+			keyLocation = defaultEnigmaKey;
+		}
+		
+		return keyLocation;
+	}
 
 }

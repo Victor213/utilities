@@ -123,7 +123,13 @@ public class Authenticator {
 		 * DO NOT KEEP A POINTER TO THE DECRYPTED PWD 
 		 * WE DO NOT WANT A BINARY HEAP DUMP TO BE ABLE TO RETRIEVE CLEAR TEXT PWDS
 		 */
-		File keyStoreFile = new File("/home/jboss/keys/enigma");
+		String keyLocation = "";
+		if (System.getProperty("os.name").toLowerCase().startsWith("win")) {
+			keyLocation = "C:\\Users\\jboss\\keys\\enigma";
+		} else {
+			keyLocation = "/home/jboss/keys/enigma";
+		}
+		File keyStoreFile = new File(keyLocation);
 		EnigmaMachine em = new EnigmaMachine(keyStoreFile);
 		try {
 			// If the stored password equals the user supplied password, the user is authenticated
