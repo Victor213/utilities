@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Name: com/cloudfordev/util
 Specification-Title: "CFD Utilities"
-Specification-Version: "2.6"
+Specification-Version: "2.6.1"
 Specification-Vendor: "Cloud For Dev, LLC".
 Package-Title: "com.cloudfordev.util"
 Package-Version: "build1"

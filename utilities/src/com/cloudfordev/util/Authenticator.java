@@ -62,9 +62,9 @@ public class Authenticator {
 		String sql = "";
 		
 		if (needEmailValidation) {
-			sql = "SELECT pwd,iv FROM users WHERE uid = ? AND is_validated = TRUE AND deleted = FALSE";
+			sql = "SELECT pwd,iv FROM users WHERE uid = ? AND is_validated = TRUE AND is_deleted = FALSE";
 		} else {
-			sql = "SELECT pwd,iv FROM users WHERE uid = ? AND deleted = FALSE";
+			sql = "SELECT pwd,iv FROM users WHERE uid = ? AND is_deleted = FALSE";
 		}
 		
 		try {
